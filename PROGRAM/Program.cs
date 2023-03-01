@@ -1,30 +1,24 @@
-﻿Console.Write("Введите колличество элементов");
-int size = Convert.ToInt32(Console.ReadLine());
-
-string[] arrayStrings = new string[size];
-int len = 3;
-int pos = 0;
-
+﻿string[] array1 = new string[5] {"123", "23", "hello", "world", "res"};
+string[] array2 = new string[array1.Length];
+void SecondArrayWithIF(string[] array1, string[] array2)
+{
+    int count = 0;
+    for (int i = 0; i < array1.Length; i++)
+    {
+    if(array1[i].Length <= 3)
+        {
+        array2[count] = array1[i];
+        count++;
+        }
+    }
+}
 void PrintArray(string[] array)
 {
- for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
- Console.Write(array[i] + " ");
+        Console.Write($"{array[i]} ");
     }
- Console.WriteLine();
+    Console.WriteLine();
 }
-
-for (int i = 0; i < size; i++)
-{
- Console.WriteLine($"Введите {i+1}-й элемент: ");
- string element = Convert.ToString(Console.ReadLine());
-
- if (element.Length <= len)
-    {
- arrayStrings[pos] = element;
- pos++;
-    }
-}
-
-Console.WriteLine();
-PrintArray(arrayStrings);
+SecondArrayWithIF(array1, array2);
+PrintArray(array2);
